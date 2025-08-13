@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://mq6701mwslwt"]
+[gd_scene load_steps=10 format=3 uid="uid://mq6701mwslwt"]
 
-[ext_resource type="Script" uid="uid://gl1h4mwr84gu" path="res://scripts/prota.gd" id="1_nl6mb"]
+[ext_resource type="Script" uid="uid://catf7i12d5a7o" path="res://scripts/prota.gd" id="1_nl6mb"]
 [ext_resource type="Texture2D" uid="uid://d0win82qkmsef" path="res://assets/sprites/personagens/prota.png" id="2_nl6mb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlah8"]
@@ -44,6 +44,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_nl6mb"]
+script/source = "extends AnimatedSprite2D
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57i12"]
 size = Vector2(8, 10)
 
@@ -54,10 +58,9 @@ script = ExtResource("1_nl6mb")
 texture_filter = 1
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_65ng4")
-animation = &"run"
-frame_progress = 0.0603583
+animation = &"idle"
+script = SubResource("GDScript_nl6mb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_57i12")
