@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://mq6701mwslwt"]
+
+[ext_resource type="Script" uid="uid://gl1h4mwr84gu" path="res://scripts/prota.gd" id="1_nl6mb"]
+[ext_resource type="Texture2D" uid="uid://d0win82qkmsef" path="res://assets/sprites/personagens/prota.png" id="2_nl6mb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlah8"]
+atlas = ExtResource("2_nl6mb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm5ns"]
+atlas = ExtResource("2_nl6mb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5hsl"]
+atlas = ExtResource("2_nl6mb")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65ng4"]
+atlas = ExtResource("2_nl6mb")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65ng4"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_tlah8")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_hm5ns")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_s5hsl")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_65ng4")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57i12"]
+size = Vector2(8, 10)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_nl6mb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_65ng4")
+animation = &"run"
+frame_progress = 0.0603583
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_57i12")
